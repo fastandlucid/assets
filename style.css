@@ -1,0 +1,97 @@
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#elementalID {
+    margin: 10px;
+    padding: 15px;
+    background-color: #444;
+    border-radius: 20px;
+    color: white;
+    outline: none;
+}
+
+#getFullViewButton, #randomButton {
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 1em;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    outline: none;
+    border: none; /* No border */
+}
+
+#getFullViewButton {
+    background-color: #85bca8;
+}
+
+#getFullViewButton:hover {
+    background-color: #9ed4c0; /* Lighter color */
+}
+
+#randomButton {
+    background-color: transparent; /* No background */
+    color: #ccc; /* Not as bright white */
+    font-weight: normal; /* Not bold */
+}
+
+#randomButton:hover {
+    color: #fff; /* Brighter on hover */
+}
+
+#getFullViewButton:active, #randomButton:active {
+    transform: scale(1.2) rotate(3deg);
+}
+
+#fullView {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#fullView img {
+    max-height: 100%;
+    width: auto;
+    border-radius: 5px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
