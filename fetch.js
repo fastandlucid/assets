@@ -4,12 +4,10 @@ const fs = require('fs');
 https.get('https://www.azuki.com/api/elemental_token_configs', (res) => {
     let data = '';
 
-    // A chunk of data has been received.
     res.on('data', (chunk) => {
         data += chunk;
     });
 
-    // The whole response has been received.
     res.on('end', () => {
         const parsedData = JSON.parse(data);
         const slugs = parsedData.ELEMENTALS.map(elemental => ({
