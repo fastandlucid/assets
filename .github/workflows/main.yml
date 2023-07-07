@@ -1,0 +1,33 @@
+name: Run fetch.js and commit changes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Run fetch.js
+      run: node ./fetch.js
+
+    - name: Check for changes
+      id: changes
+      uses: UnicornGlobal/has-changes-action@v1.0.11
+
+    - name: Commit and push
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add -A
+        git commit -m "Data updated" || echo "No changes to commit"
+        git push
