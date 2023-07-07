@@ -1,11 +1,11 @@
 function getFullView() {
     var elementalID = document.getElementById("elementalID").value;
-    var url = "https://gist.githubusercontent.com/fastandlucid/0e80ac73f973a2b25ec1d94da73bf4fe/raw/a24241758506679112c10e9a5f4523a879f84d50/stripped_elementals_data.json";
+    var url = "https://raw.githubusercontent.com/fastandlucid/assets/main/stripped_data.json";
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            var jsonData = data.find(elemental => elemental.name === `Elemental #${elementalID}`);
+            var jsonData = data.find(elemental => elemental.name === elementalID);
 
             var fullViewDiv = document.getElementById("fullView");
             if (!jsonData) {
@@ -13,9 +13,7 @@ function getFullView() {
                 return;
             }
 
-            var imageURLPrefix = jsonData.image.split(".png")[0];
-            var newImageURL = imageURLPrefix + "-bigazuki.png";
-
+            var newImageURL = "https://elementals-images.azuki.com/" + jsonData.image + "-bigazuki.png";
             fullViewDiv.innerHTML = '<img src="' + newImageURL + '">';
         })
         .catch(error => {
@@ -24,13 +22,13 @@ function getFullView() {
 }
 
 function getRandomElemental() {
-    var url = "https://gist.githubusercontent.com/fastandlucid/0e80ac73f973a2b25ec1d94da73bf4fe/raw/a24241758506679112c10e9a5f4523a879f84d50/stripped_elementals_data.json";
-    
+    var url = "https://raw.githubusercontent.com/fastandlucid/assets/main/stripped_data.json";
+
     fetch(url)
         .then(response => response.json())
         .then(data => {
             var randomElemental = data[Math.floor(Math.random() * data.length)];
-            document.getElementById("elementalID").value = randomElemental.name.split(" ")[1].substring(1);
+            document.getElementById("elementalID").value = randomElemental.name;
             getFullView();
         })
         .catch(error => {
