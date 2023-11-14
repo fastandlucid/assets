@@ -2952,6 +2952,10 @@
     "image": "b2feedaf-ee86-45c3-be1c-a48d6f8b2628"
   },
   {
+    "name": "1008",
+    "image": "b38bf582-6d61-4a73-b90f-0742afc16f89"
+  },
+  {
     "name": "1010",
     "image": "43f2d74e-08b7-467f-90d4-bf02ad2d31dd"
   },
@@ -3994,9 +3998,5 @@
   {
     "name": "1371",
     "image": "b060d443-6fe8-46d7-bb86-a3fdf4c729ac"
-  },
-  {
-    "name": "1372",
-    "image": "a43b44fd-00a5-43ec-ab8d-43b50b80c7c6"
   }
 ]
